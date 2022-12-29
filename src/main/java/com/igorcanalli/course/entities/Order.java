@@ -122,5 +122,9 @@ public class Order implements Serializable {
 		return Objects.equals(client, other.client) && Objects.equals(id, other.id)
 				&& Objects.equals(moment, other.moment);
 	}
+	
+	public Double getTotal() {
+		return items.stream().mapToDouble(OrderItem::getSubTotal).sum();
+	}
 
 }
